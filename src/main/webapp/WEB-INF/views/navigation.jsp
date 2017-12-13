@@ -13,12 +13,6 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="wiki.do">
-            <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">메뉴편집</span>
-          </a>
-        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="wiki.do">
             <i class="fa fa-fw fa-table"></i>
@@ -91,7 +85,7 @@
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="wiki.do">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Link</span>
           </a>
@@ -195,8 +189,14 @@
           </form>
         </li>
         <li class="nav-item">
+          <a class="nav-link mr-lg-2" id="messagesDropdown" href="#">
+            <i class="fa fa-fw fa-cog"></i>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            <i class="fa fa-fw fa-sign-out"></i>Logout
+          </a>
         </li>
       </ul>
     </div>
