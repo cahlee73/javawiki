@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>AMOREPACIFIC AMS POS Docs</title>
+  <title>${(code['M001'])['0001'] }</title>
   <!-- Bootstrap core CSS-->
   <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->

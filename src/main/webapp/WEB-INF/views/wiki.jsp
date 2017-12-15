@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>${(code['M001'])['0001'] }</title>
   <!-- Bootstrap core CSS-->
   <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -27,14 +27,34 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">Dashboard</a>
+          <a href="index.html">아리따움</a>
         </li>
-        <li class="breadcrumb-item active">Blank Page</li>
+        <li class="breadcrumb-item">
+          <a href="index.html">업무</a>
+        </li>
+        <li class="breadcrumb-item active">주문</li>
       </ol>
+      <!-- <a class="btn btn-primary" href="#" id="toggleNavColor">Export PDF</a> -->
+      
       <div class="row">
         <div class="col-12">
-          <h1>Blank</h1>
-          <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+          <h1>주문</h1>
+          <hr>
+          <p>
+          	<h2>용어</h2>
+          	<hr>
+          	주문(발주) : 매장에서 제품을 판매를 위해서 본사(아모레퍼시픽)로 제품을 발주 요청하는 프로세스<br/>
+          	환입 : 주문과 반대되는 용어로 매장에서 존재하는 제품을 여러 사유로 본사로 다시 반품하기 위하여 진행하는 프로세스<br/>
+          	직영점<br/>
+          	가맹점<br/>
+          	수탁점<br/>
+          </p>
+          
+          <p>
+          	<h2>직영 매장과 가맹 매장 주문/환입의 차이</h2>
+          	<hr>
+          	가맹 매장은 ~~
+          </p>
         </div>
       </div>
     </div>
@@ -61,7 +81,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="login.do">Logout</a>
           </div>
         </div>
       </div>

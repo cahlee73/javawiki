@@ -3,7 +3,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © IBM GBS Korea 2017</small>
+          <small>${(code['M001'])['0003'] }</small>
         </div>
       </div>
     </footer>
