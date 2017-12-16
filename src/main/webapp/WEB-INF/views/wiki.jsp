@@ -37,13 +37,14 @@
       
       <div class="row">
         <div class="col-12">
+
           <div style="float:right;">
             <a class="btn btn-primary" href="#" id="toggleNavColor">Export to PDF</a>
             <a class="btn btn-primary" href="#" id="toggleNavColor">Improve this doc</a>
           </div>
-          
+
           <!-- wiki 제목 -->
-          <h1>주문</h1>
+          <h1>주문${wiki }</h1>
           <hr>
           
           <!-- wiki 본문 시작 -->
@@ -77,23 +78,8 @@
       <i class="fa fa-angle-up"></i>
     </a>
     <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.do">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
+ 	<jsp:include page="logout.jsp" flush="false"/>
+
     <!-- Bootstrap core JavaScript-->
     <script src="resources/vendor/jquery/jquery.min.js"></script>
     <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

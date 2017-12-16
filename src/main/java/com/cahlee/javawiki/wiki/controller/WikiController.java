@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WikiController {
@@ -17,7 +18,7 @@ public class WikiController {
 	private static final Logger logger = LoggerFactory.getLogger(WikiController.class);
 
 	@RequestMapping(value = "/wiki.do", method = RequestMethod.GET)
-	public String wiki(Locale locale, Model model) {
+	public String wiki(Locale locale, Model model, @RequestParam("wiki") int wiki) {
 		logger.info("wiki page");
 		
 		/* 테스트 용 코드 -> 삭제 예정 */
@@ -105,6 +106,7 @@ public class WikiController {
 		temp6.put("wiki", 8);
 		list.add(temp6);
 		
+		model.addAttribute("wiki", wiki);
 		model.addAttribute("menus", list);
 		
 		return "wiki";

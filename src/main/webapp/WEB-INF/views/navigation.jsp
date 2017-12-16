@@ -142,7 +142,7 @@
           </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link mr-lg-2" id="messagesDropdown" href="#">
+          <a class="nav-link mr-lg-2" id="messagesDropdown" href="admin.do">
             <i class="fa fa-fw fa-cog"></i>
           </a>
         </li>

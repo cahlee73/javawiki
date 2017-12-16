@@ -34,5 +34,6 @@ INSERT INTO code VALUES ('0000', 'M001', '시스템 마스터 정보', '시스�
 INSERT INTO code VALUES ('M001', '0001', 'AMOREPACIFIC AMS POS Docs', '페이지 헤드 타이틀', 'Y');
 INSERT INTO code VALUES ('M001', '0002', 'AMOREPACIFIC AMS POS Docs', '페이지 상단 네비게이션 타이틀', 'Y');
 INSERT INTO code VALUES ('M001', '0003', 'Copyright © IBM GBS Korea 2017', '페이지 하단 FOOTER 내용', 'Y');
+INSERT INTO code VALUES ('M001', '0004', 'resources/img/ibmpos_blue.png', '로고 이미지 경로', 'Y');
 
 Menu도 만들어야되고, 로그인 필수여부 옵션
