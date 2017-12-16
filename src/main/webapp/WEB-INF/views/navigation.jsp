@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="/"><img src="resources/img/ibmpos_blue.png" width="60px" alt=""> ${(code['M001'])['0002'] }</a>
+    <a class="navbar-brand" href="/"><img src="${(code['M001'])['0004'] }" height="20px" alt=""> ${(code['M001'])['0002'] }</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
+      
+      <!-- 좌측 메뉴 리스트 -->
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="/">
@@ -13,83 +16,31 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="wiki.do">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Wiki 작성방법</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">아리따움</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="wiki.do">Navbar</a>
-            </li>
-            <li>
-              <a href="wiki.do">Cards</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">에스쁘아</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="wiki.do">Login Page</a>
-            </li>
-            <li>
-              <a href="wiki.do">Registration Page</a>
-            </li>
-            <li>
-              <a href="wiki.do">Forgot Password Page</a>
-            </li>
-            <li>
-              <a href="wiki.do">Blank Page</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">모바일 POS</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="wiki.do">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
-        </li>
+      	<c:forEach var="menu" items="${menus }" varStatus="status">
+	  	  <li class="nav-item" data-toggle="tooltip" data-placement="right">
+	  	  	<c:choose>
+	  	  		<c:when  test="${menu['existSubmenu'] == false }">
+		            <a class="nav-link" href="wiki.do?wiki=${menu['wiki'] }">
+		              <i class="fa fa-fw ${menu['icon'] }"></i>
+		              <span class="nav-link-text">${menu['name'] }</span>
+		            </a>
+	  	  		</c:when>
+	  	  		<c:otherwise>
+	  	  			<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents${status.index}" data-parent="#exampleAccordion">
+		              <i class="fa fa-fw ${menu['icon'] }"></i>
+		              <span class="nav-link-text">${menu['name'] }</span>
+		            </a>
+		            <ul class="sidenav-second-level collapse" id="collapseComponents${status.index}">
+		            	<c:forEach var="subMenu" items="${menu['subMenus'] }" varStatus="status">
+			              <li>
+			                <a href="wiki.do?wiki=${subMenu['wiki'] }">${subMenu['name'] }</a>
+			              </li>
+		            	</c:forEach>
+		            </ul>
+	  	  		</c:otherwise>
+	  	  	</c:choose>
+          </li>
+      	</c:forEach>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -98,6 +49,8 @@
           </a>
         </li>
       </ul>
+      
+      <!-- 상단 우측 메뉴 -->
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
