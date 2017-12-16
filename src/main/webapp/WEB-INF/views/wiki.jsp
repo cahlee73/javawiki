@@ -34,12 +34,19 @@
         </li>
         <li class="breadcrumb-item active">주문</li>
       </ol>
-      <!-- <a class="btn btn-primary" href="#" id="toggleNavColor">Export PDF</a> -->
       
       <div class="row">
         <div class="col-12">
+          <div style="float:right;">
+            <a class="btn btn-primary" href="#" id="toggleNavColor">Export to PDF</a>
+            <a class="btn btn-primary" href="#" id="toggleNavColor">Improve this doc</a>
+          </div>
+          
+          <!-- wiki 제목 -->
           <h1>주문</h1>
           <hr>
+          
+          <!-- wiki 본문 시작 -->
           <p>
           	<h2>용어</h2>
           	<hr>
@@ -55,6 +62,7 @@
           	<hr>
           	가맹 매장은 ~~
           </p>
+          <!-- wiki 본문 끝 -->
         </div>
       </div>
     </div>
