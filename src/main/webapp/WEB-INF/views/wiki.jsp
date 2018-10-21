@@ -16,6 +16,8 @@
   <link href="resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="resources/css/editormd.parser.css" />
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -38,31 +40,45 @@
       <div class="row">
         <div class="col-12">
 
-          <div style="float:right;">
+          <div style="float:right; z-index: 100;">
             <a class="btn btn-primary" href="#" id="toggleNavColor">Export to PDF</a>
             <a class="btn btn-primary" href="#" id="toggleNavColor">Improve this doc</a>
           </div>
+		
+		<div id="editormd">
+			<div class="editormd-preview">
+				<div id="markdown-body" class="markdown-body editormd-preview-container"></div>
+			</div>
+			<textarea style="display:none;"># 주문
 
-          <!-- wiki 제목 -->
-          <h1>주문${wiki }</h1>
-          <hr>
-          
-          <!-- wiki 본문 시작 -->
-          <p>
-          	<h2>용어</h2>
-          	<hr>
-          	주문(발주) : 매장에서 제품을 판매를 위해서 본사(아모레퍼시픽)로 제품을 발주 요청하는 프로세스<br/>
-          	환입 : 주문과 반대되는 용어로 매장에서 존재하는 제품을 여러 사유로 본사로 다시 반품하기 위하여 진행하는 프로세스<br/>
-          	직영점<br/>
-          	가맹점<br/>
-          	수탁점<br/>
-          </p>
-          
-          <p>
-          	<h2>직영 매장과 가맹 매장 주문/환입의 차이</h2>
-          	<hr>
-          	가맹 매장은 ~~
-          </p>
+## 용어
+
+주문(발주) : 매장에서 제품을 판매를 위해서 본사(아모레퍼시픽)로 제품을 발주 요청하는 프로세스
+환입 : 주문과 반대되는 용어로 매장에서 존재하는 제품을 여러 사유로 본사로 다시 반품하기 위하여 진행하는 프로세스
+직영점
+가맹점
+수탁점
+
+<img src="/img/ibmpos_blue.png"/>
+
+## 직영 매장과 가맹 매장 주문/환입의 차이
+
+가맹 매장은 ~~
+코드
+	#include <stdio.h>
+	int main(void)
+	{
+		printf("hello, word");
+		return 0;
+	}
+
+코드
+
+|a|b|
+| ------------ | ------------ |
+|1|2|
+|4|3|</textarea>
+		</div>
           <!-- wiki 본문 끝 -->
         </div>
       </div>
@@ -87,7 +103,24 @@
     <script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="resources/js/sb-admin.min.js"></script>
+
+	<script src="resources/js/editormd.js"></script>
+  <script src="resources/js/marked.min.js"></script>
+  <script>
+  	var marked = marked(
+  			$("#editormd").children("textarea")[0].innerHTML,
+  			{
+  				breaks: true,
+  				sanitize: true,
+                gfm         : true,
+                tables      : true,
+                pedantic    : false,
+                smartLists  : true,
+                smartypants : true
+  			}
+  			);
+    $("#markdown-body").html(marked);
+  </script>
   </div>
 </body>
-
 </html>
