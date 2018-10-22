@@ -17,7 +17,7 @@
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css" rel="stylesheet">
   
-  <link rel="stylesheet" href="resources/css/editormd.parser.css" />
+  <link rel="stylesheet" href="resources/css/editormd.min.css" />
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -39,16 +39,12 @@
       
       <div class="row">
         <div class="col-12">
-
-          <div style="float:right; z-index: 100; position: absolute; right: 15px">
-            <a class="btn btn-primary" href="#" id="toggleNavColor">Export to PDF</a>
-            <a class="btn btn-primary" href="edit.do?wiki=1" id="toggleNavColor">Improve this doc</a>
+          <div style="float:right; z-index: 100; margin-bottom: 15px;">
+            <a class="btn btn-primary" href="wiki.do?wiki=1" id="toggleNavColor">Cancel</a>
+            <a class="btn btn-primary" href="wiki.do?wiki=1" id="toggleNavColor">Save</a>
           </div>
-		
+
 		<div id="editormd">
-			<div class="editormd-preview">
-				<div id="markdown-body" class="markdown-body editormd-preview-container"></div>
-			</div>
 			<textarea style="display:none;"># 주문
 
 ## 용어
@@ -105,22 +101,13 @@
     <script src="resources/js/sb-admin.min.js"></script>
 
 	<script src="resources/js/editormd.js"></script>
-  <script src="resources/js/marked.min.js"></script>
-  <script>
-  	var marked = marked(
-  			$("#editormd").children("textarea")[0].innerHTML,
-  			{
-  				breaks: true,
-  				sanitize: true,
-                gfm         : true,
-                tables      : true,
-                pedantic    : false,
-                smartLists  : true,
-                smartypants : true
-  			}
-  			);
-    $("#markdown-body").html(marked);
-  </script>
+	<script>
+		$(function() {
+		    var editor = editormd("editormd", {
+		        path : "resources/lib/"
+		    });
+		});
+	</script>
   </div>
 </body>
 </html>
